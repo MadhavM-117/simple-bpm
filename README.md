@@ -7,5 +7,5 @@ A simple BPM example using Camunda as the Process engine, and Kogito as the Deci
 To run the application locally, do: 
 
 ```sh
-mvn exec:main -Dexec.mainClass="com.raaz.example.workflow.Application"
+mvn exec:java -Dexec.mainClass="com.raaz.example.workflow.Application"
 ```

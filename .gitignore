@@ -1,3 +1,7 @@
 target/
 *.db
 
+# VSCode Local Files
+.classpath
+.project
+.settings/

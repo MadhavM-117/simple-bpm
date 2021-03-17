@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" xmlns:camunda="http://camunda.org/schema/1.0/dmn" id="classifyDeveloper" name="Classify Developer" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="4.6.0">
+  <decision id="Decision_1gyizqq" name="Decision 1">
+    <decisionTable id="DecisionTable_0lge6ms">
+      <input id="Input_1" biodi:width="192" camunda:inputVariable="knowsReact">
+        <inputExpression id="InputExpression_1" typeRef="boolean">
+          <text>Knows React?</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0saryma" camunda:inputVariable="knowsJavascript">
+        <inputExpression id="LiteralExpression_1ywszfs" typeRef="boolean">
+          <text>Knows Javascript?</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1532q0e" camunda:inputVariable="knowsJava">
+        <inputExpression id="LiteralExpression_0ts8ozr" typeRef="boolean">
+          <text>Knows Java?</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0az090x" camunda:inputVariable="knowsPython">
+        <inputExpression id="LiteralExpression_159lu7s" typeRef="boolean">
+          <text>Knows Python?</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" name="devType" typeRef="string">
+        <outputValues id="UnaryTests_0bn8yjg">
+          <text>"back-end","front-end","full-stack","error"</text>
+        </outputValues>
+      </output>
+      <rule id="DecisionRule_0unpdr6">
+        <description>Full Stack Developer</description>
+        <inputEntry id="UnaryTests_1ukoude">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0e9tw65">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0xbiwig">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0xiaumh">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1ckujxd">
+          <text>"full-stack"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_12190o9">
+        <description>Full Stack Developer</description>
+        <inputEntry id="UnaryTests_1t1156k">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_01myu6q">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_151veuf">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1gd3bf3">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1jozsw1">
+          <text>"full-stack"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1pue4np">
+        <description>Full Stack Developer</description>
+        <inputEntry id="UnaryTests_19zibba">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0car5bl">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0fj82vq">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0d2x18f">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1e56nbu">
+          <text>"full-stack"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_15gsz12">
+        <description>Front End Developer</description>
+        <inputEntry id="UnaryTests_0l44ick">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_07evjlh">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1sqm02d">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0qqugoj">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0jw79dm">
+          <text>"front-end"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_05wk105">
+        <description>Bad Developer</description>
+        <inputEntry id="UnaryTests_1yvc2sp">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1csw1xa">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1fwynrv">
+          <text>true </text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_15pu4g1">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0v7juz4">
+          <text>"error"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0q0p7lz">
+        <description>Bad Developer</description>
+        <inputEntry id="UnaryTests_1urbgye">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0xowfmy">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1gwr9il">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1yrj76s">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0cf94am">
+          <text>"error"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0krr14y">
+        <description>Bad Developer</description>
+        <inputEntry id="UnaryTests_0s6eumj">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1rp3xyp">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_05wpxj9">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0nl1w90">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0cj1i1e">
+          <text>"error"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_11wopz0">
+        <description>Bad Developer</description>
+        <inputEntry id="UnaryTests_14dw02y">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1tdbdn7">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_01iij87">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_16f0xgj">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1m2gwua">
+          <text>"error"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1wsmi1p">
+        <description>Back End Developer</description>
+        <inputEntry id="UnaryTests_1n1mmnr">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1vf7ra6">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_05y8hp4">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1aysx55">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0f9sark">
+          <text>"back-end"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_10l9es5">
+        <description>Back End Developer</description>
+        <inputEntry id="UnaryTests_1lqj9q5">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0tzt0xk">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_01ui988">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1qbkllj">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1w4z0b9">
+          <text>"back-end"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_110plcv">
+        <description>Back End Developer</description>
+        <inputEntry id="UnaryTests_1608cka">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0n38zcy">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_02zqg9s">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ego6rr">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1veyn2x">
+          <text>"back-end"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1b9gpi7">
+        <description>Back End Developer</description>
+        <inputEntry id="UnaryTests_0so20qu">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0i5csgr">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ldhhgk">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1dscqy3">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_192fvya">
+          <text>"back-end"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1fbefi6">
+        <description>Back End Developer</description>
+        <inputEntry id="UnaryTests_0dkzrcw">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1a612b9">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_09mz180">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1gmlr93">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1b3kgsk">
+          <text>"back-end"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1slnmd5">
+        <description>Back End Developer</description>
+        <inputEntry id="UnaryTests_1ftk45s">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_08sid1g">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1o3a6uk">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1kwbu4w">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0dyrwgx">
+          <text>"back-end"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1rhyzhs">
+        <description>Back End Developer</description>
+        <inputEntry id="UnaryTests_0rf3xce">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0kezbws">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_081hp5q">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_14156sh">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0aso0gn">
+          <text>"back-end"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1ihun2e">
+        <description>Back End Developer</description>
+        <inputEntry id="UnaryTests_1wupty5">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0glneih">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1cl092v">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0d591v2">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_06qhaw0">
+          <text>"error"</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="Decision_1gyizqq">
+        <dc:Bounds height="80" width="180" x="160" y="100" />
+      </dmndi:DMNShape>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

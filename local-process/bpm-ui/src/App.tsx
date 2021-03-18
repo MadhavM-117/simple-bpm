@@ -27,7 +27,6 @@ class App extends React.Component<IProps, IState> {
     this.client = new Client({
       baseUrl: "http://localhost:8080/engine-rest", 
       use: logger, 
-      interval: 10000
     });
  
     this.state = {
@@ -40,7 +39,7 @@ class App extends React.Component<IProps, IState> {
   } 
 
   componentDidMount() {
-    this.client.subscribe("approveApplication", this.handleTask(true));
+    this.client.subscribe("saveApplication", this.handleTask(true));
     this.client.subscribe("rejectApplication", this.handleTask(false));
   }
 

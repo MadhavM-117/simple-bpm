@@ -36,10 +36,10 @@
     <bpmn:sequenceFlow id="Flow_1y4iski" name="Error" sourceRef="Gateway_06qmdgv" targetRef="rejectApplication">
       <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${devType=="error"}</bpmn:conditionExpression>
     </bpmn:sequenceFlow>
-    <bpmn:sequenceFlow id="Flow_1b3f9hz" name="Back-End?" sourceRef="Gateway_06qmdgv" targetRef="Activity_1ffkjn1">
+    <bpmn:sequenceFlow id="Flow_1b3f9hz" name="Back-End?" sourceRef="Gateway_06qmdgv" targetRef="manually-approve-developer">
       <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${devType=="back-end"}</bpmn:conditionExpression>
     </bpmn:sequenceFlow>
-    <bpmn:sequenceFlow id="Flow_07asp66" name="Front-End?" sourceRef="Gateway_06qmdgv" targetRef="Activity_1ffkjn1">
+    <bpmn:sequenceFlow id="Flow_07asp66" name="Front-End?" sourceRef="Gateway_06qmdgv" targetRef="manually-approve-developer">
       <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${devType=="front-end"}</bpmn:conditionExpression>
     </bpmn:sequenceFlow>
     <bpmn:sequenceFlow id="Flow_1sltq1j" name="Full Stack" sourceRef="Gateway_06qmdgv" targetRef="save-application">
@@ -50,14 +50,24 @@
       <bpmn:outgoing>Flow_0xycbfi</bpmn:outgoing>
       <bpmn:outgoing>Flow_1pwnwxf</bpmn:outgoing>
     </bpmn:exclusiveGateway>
-    <bpmn:sequenceFlow id="Flow_1wogxdu" sourceRef="Activity_1ffkjn1" targetRef="Gateway_04o3k0o" />
+    <bpmn:sequenceFlow id="Flow_1wogxdu" sourceRef="manually-approve-developer" targetRef="Gateway_04o3k0o" />
     <bpmn:sequenceFlow id="Flow_0xycbfi" name="No&#10;&#10;" sourceRef="Gateway_04o3k0o" targetRef="rejectApplication">
       <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${!approved}</bpmn:conditionExpression>
     </bpmn:sequenceFlow>
     <bpmn:sequenceFlow id="Flow_1pwnwxf" name="Yes" sourceRef="Gateway_04o3k0o" targetRef="save-application">
       <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${approved}</bpmn:conditionExpression>
     </bpmn:sequenceFlow>
-    <bpmn:userTask id="Activity_1ffkjn1" name="Manually Approve Developer" camunda:assignee="demo">
+    <bpmn:userTask id="manually-approve-developer" name="Manually Approve Developer" camunda:assignee="demo">
+      <bpmn:extensionElements>
+        <camunda:formData>
+          <camunda:formField id="devType" label="Developer Type" type="string" />
+          <camunda:formField id="knowsReact" label="Knows React?" type="boolean" />
+          <camunda:formField id="knowsJavascript" label="Knows Javascript?" type="boolean" />
+          <camunda:formField id="knowsJava" label="Knows Java?" type="boolean" />
+          <camunda:formField id="knowsPython" label="Knows Python?" type="boolean" />
+          <camunda:formField id="approved" label="Approved?" type="boolean" defaultValue="false" />
+        </camunda:formData>
+      </bpmn:extensionElements>
       <bpmn:incoming>Flow_1b3f9hz</bpmn:incoming>
       <bpmn:incoming>Flow_07asp66</bpmn:incoming>
       <bpmn:outgoing>Flow_1wogxdu</bpmn:outgoing>
@@ -160,7 +170,7 @@
           <dc:Bounds x="1104" y="390" width="53" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_1vyxvlz_di" bpmnElement="Activity_1ffkjn1">
+      <bpmndi:BPMNShape id="Activity_1vyxvlz_di" bpmnElement="manually-approve-developer">
         <dc:Bounds x="800" y="360" width="100" height="80" />
       </bpmndi:BPMNShape>
     </bpmndi:BPMNPlane>

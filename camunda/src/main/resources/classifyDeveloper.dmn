@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" xmlns:camunda="http://camunda.org/schema/1.0/dmn" id="classifyDeveloper" name="Classify Developer" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="4.6.0">
-  <decision id="Decision_1gyizqq" name="Decision 1">
+  <decision id="classify-developer" name="Classify Developer">
     <decisionTable id="DecisionTable_0lge6ms">
       <input id="Input_1" biodi:width="192" camunda:inputVariable="knowsReact">
         <inputExpression id="InputExpression_1" typeRef="boolean">
-          <text>Knows React?</text>
+          <text>knowsReact</text>
         </inputExpression>
       </input>
       <input id="InputClause_0saryma" camunda:inputVariable="knowsJavascript">
         <inputExpression id="LiteralExpression_1ywszfs" typeRef="boolean">
-          <text>Knows Javascript?</text>
+          <text>knowsJavascript</text>
         </inputExpression>
       </input>
       <input id="InputClause_1532q0e" camunda:inputVariable="knowsJava">
         <inputExpression id="LiteralExpression_0ts8ozr" typeRef="boolean">
-          <text>Knows Java?</text>
+          <text>knowsJava</text>
         </inputExpression>
       </input>
       <input id="InputClause_0az090x" camunda:inputVariable="knowsPython">
         <inputExpression id="LiteralExpression_159lu7s" typeRef="boolean">
-          <text>Knows Python?</text>
+          <text>knowsPython</text>
         </inputExpression>
       </input>
       <output id="Output_1" name="devType" typeRef="string">
@@ -108,7 +108,7 @@
           <text>false</text>
         </inputEntry>
         <inputEntry id="UnaryTests_1fwynrv">
-          <text>true </text>
+          <text>true</text>
         </inputEntry>
         <inputEntry id="UnaryTests_15pu4g1">
           <text>true</text>
@@ -319,7 +319,7 @@
   </decision>
   <dmndi:DMNDI>
     <dmndi:DMNDiagram>
-      <dmndi:DMNShape dmnElementRef="Decision_1gyizqq">
+      <dmndi:DMNShape dmnElementRef="classify-developer">
         <dc:Bounds height="80" width="180" x="160" y="100" />
       </dmndi:DMNShape>
     </dmndi:DMNDiagram>

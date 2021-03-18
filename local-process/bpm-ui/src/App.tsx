@@ -26,7 +26,8 @@ class App extends React.Component<IProps, IState> {
     super(props);
     this.client = new Client({
       baseUrl: "http://localhost:8080/engine-rest", 
-      use: logger 
+      use: logger, 
+      interval: 10000
     });
  
     this.state = {
@@ -39,18 +40,22 @@ class App extends React.Component<IProps, IState> {
   } 
 
   componentDidMount() {
-    // this.client.subscribe("helloWorld", async function({task, taskService}) {
-    //     console.log("processing task");
-    //     setTimeout(async () => {
-    //       console.log("processing finished")
-  
-    //       await taskService.complete(task);
-    //     }, 5000);
-    // });
+    this.client.subscribe("approveApplication", this.handleTask(true));
+    this.client.subscribe("rejectApplication", this.handleTask(false));
   }
 
-  private async handleTask({task, taskService}: {task: Task, taskService: TaskService}) {
-    
+  private handleTask(success: boolean) {
+    return ({task, taskService}: {task: Task, taskService: TaskService}) => {
+      const { processState } = this.state;
+      
+      if (processState === "running" || processState === "pending") {
+        this.setState({
+          processState: success ? "success" : "failure"
+        }, async () => {
+          await taskService.complete(task);
+        })  
+      }
+    };
   }
 
   private getCheckboxEventHandler(field: string) {
